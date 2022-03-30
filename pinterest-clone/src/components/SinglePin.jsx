@@ -49,7 +49,7 @@ function SinglePin() {
       <Inner>
         <LeftSide><img src={pin.urls.full} alt="" /></LeftSide>
         <RightSide>
-            <h1>{pin.alt_description}</h1>
+            <h1>{pin.alt_description.charAt(0).toUpperCase() + pin.alt_description.slice(1)}</h1>
             <br/>
             <h3>{pin.description}</h3>
             <br/>
@@ -58,8 +58,6 @@ function SinglePin() {
       </Inner>
        
  </WrapperSingle>
- <br/>
- <hr />
  
  <Mainboard pins={pins}/>
       </>
@@ -81,6 +79,8 @@ img{
     object-fit: cover;
     border-radius:40px 0px 0px 40px;
 }
+
+
 `
 
 const RightSide = styled.div`

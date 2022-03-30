@@ -104,10 +104,14 @@ const Wrapper = styled.div`
 
  const HomePageButton = styled(HomeButton)`
  
- background-color:rgb(17,17,17);
-   text-decoration: none;
-   color:white;
+ background-color:white;
+  text-decoration: none;
+   color:black;
    font-weight: 700;
+
+   :hover{
+   background-color: #e1e1e1;
+ }
  
  `
 
@@ -167,5 +171,5 @@ const SearchWrapper = styled.div`
 
   const A=styled.a`
   text-decoration: none;
-  
+
   `

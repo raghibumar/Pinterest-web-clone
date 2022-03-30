@@ -1,6 +1,6 @@
 // "rfce+tab" shortcut of templet of react component
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 function Pin({urls,alt_description,id}) {
@@ -8,7 +8,7 @@ function Pin({urls,alt_description,id}) {
     <Wrapper>
         <Container>
          
-          <LinkComp to={`/pin/${id}`}>
+          <LinkComp href={`/pin/${id}`}>
           <img src={urls?.regular} alt="pin"/>
           <h3>{alt_description}</h3>
           </LinkComp>
@@ -34,16 +34,20 @@ cursor: pointer;
 width:236px;
 
 img{
-    display: flex;
-    width: 100%;
     cursor:zoom-in;
     border-radius: 16px;
     object-fit: cover;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+     backface-visibility: hidden;
 }
 
 
 `
 
-const LinkComp = styled(Link)`text-decoration: none;
+const LinkComp = styled.a`text-decoration: none;
 color:black;`
 
