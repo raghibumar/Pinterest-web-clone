@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import IconButton from '@mui/material/IconButton'
@@ -14,6 +15,7 @@ function Header({onSubmit}) {
   const onSubmitevent=(e)=>{
  e.preventDefault();
  onSubmit(input);
+ setInput("");
   }
   return (
   <Wrapper>
@@ -24,19 +26,20 @@ function Header({onSubmit}) {
       </IconButton>
 
     </LogoWrapper>
+    <A href='/'>
      <HomePageButton>
-       <a href="/">Home</a>
-    </HomePageButton>
-    <FollowingButton>
-        <a href="/">Today</a>
-    </FollowingButton>
+      Home
+    </HomePageButton></A>
+    <A href="/"> <FollowingButton>
+       Today
+    </FollowingButton></A>
    <SearchWrapper>
       <SearchBarWrapper>
         <IconButton>
           <SearchIcon/>
         </IconButton>
         <form>
-          <input type="text" onChange={(e)=>setInput
+          <input type="text" value={input} onChange={(e)=>setInput
           (e.target.value)} />
           <button type='submit' onClick={onSubmitevent}></button>
         </form>
@@ -74,7 +77,10 @@ const Wrapper = styled.div`
   padding:12px 4px 4px 16px;
   background-color: white;
   color: black;
-  
+  position: fixed;
+  margin-top:-12px;
+ z-index: 1;
+  width:99%;
  `
 
  const LogoWrapper = styled.div`
@@ -99,23 +105,19 @@ const Wrapper = styled.div`
  const HomePageButton = styled(HomeButton)`
  
  background-color:rgb(17,17,17);
-
- a{
    text-decoration: none;
    color:white;
    font-weight: 700;
- }
+ 
  `
 
  const FollowingButton = styled(HomeButton)`
 
  background-color:white;
-
- a{
-   text-decoration: none;
+  text-decoration: none;
    color:black;
    font-weight: 700;
- }
+
 
  :hover{
    background-color: #e1e1e1;
@@ -161,4 +163,9 @@ const SearchWrapper = styled.div`
 
   const IconsWrapper = styled.div`
   margin-left: 10px;
+  `
+
+  const A=styled.a`
+  text-decoration: none;
+  
   `

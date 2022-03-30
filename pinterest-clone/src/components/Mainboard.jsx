@@ -6,8 +6,8 @@ function Mainboard({pins}) {
     <Wrapper>
         <Container>
             {pins.map((pin,i)=>{
-                let {urls}=pin;
-               return <Pin key={i} urls={urls}/>
+                let {urls,alt_description,id}=pin;
+               return <Pin key={i} urls={urls} alt_description={alt_description} id={id}/>
             })}
     
         </Container>
@@ -28,9 +28,10 @@ margin-top: 10px;
 
 const Container = styled.div`
 column-count: 5;
+
 column-gap: 5px;
 margin: 0 auto;
 height: 100%;
 max-width: 1260px;
-
+margin-top: 63px;
 background-color: white;`

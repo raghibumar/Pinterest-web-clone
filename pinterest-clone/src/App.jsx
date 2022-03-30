@@ -5,10 +5,15 @@ import Mainboard from './components/Mainboard';
 import unplash from './api/unplash';
 import { useEffect, useState } from 'react';
 
+import { Routes, Route } from "react-router";
+import {SinglePin} from './components/SinglePin';
+import NoteFound from './components/NoteFound';
+
 function App() {
  
   const [pins,setPins]=useState ([]);
 
+   
   const getImages=(term)=>{
     return unplash.get("https://api.unsplash.com/search/photos",{
       params:{query:term}
@@ -56,8 +61,16 @@ function App() {
 
   return (
     <div className="App">
-  <Header onSubmit={onSearchSubmit}/>
-  <Mainboard pins={pins}/>
+      
+      
+  
+      <Header onSubmit={onSearchSubmit}/>
+  <Routes>
+    
+    <Route path="/" element={<Mainboard pins={pins}/>} />
+    <Route path="/pin/:id" element={<SinglePin/>} />
+    <Route path="*" element={<NoteFound/>} />
+  </Routes>
     </div>
   );
 }
