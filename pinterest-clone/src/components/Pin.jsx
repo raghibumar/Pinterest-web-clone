@@ -4,13 +4,14 @@ import React from 'react'
 import styled from "styled-components";
 
 function Pin({urls,alt_description,id}) {
+  
   return (
     <Wrapper>
         <Container>
          
           <LinkComp href={`/pin/${id}`}>
           <img src={urls?.regular} alt="pin"/>
-          <h3>{alt_description}</h3>
+          <h4>{alt_description===null?alt_description:alt_description.charAt(0).toUpperCase() + alt_description.slice(1)}</h4>
           </LinkComp>
           
         </Container>
@@ -49,5 +50,10 @@ img{
 `
 
 const LinkComp = styled.a`text-decoration: none;
-color:black;`
+color:black;
+
+h5{
+  color: #292929;
+}
+`
 
